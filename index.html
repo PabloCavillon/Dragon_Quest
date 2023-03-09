@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Dragon quest</title>
+</head>
+<body>
+
+    <div id="pantalla_00">
+        <div class="contenedor">
+            <p>En la dinastía Targaryen se acostumbra a regalar un huevo de dragón a cada uno de los recién nacidos de la familia. El rey te ha encomendado la honorable tarea de ir a la cueva donde se esconde la última dragona viva a conseguir un huevo para el príncipe que nació hace unos días. ¿Podrás conseguirlo o morirás en el intento? </p>
+            
+            <input type="button" class="button" data-to="pantalla_01" id="btn_00" name="btn_00" onclick="handdle_btn_00()">
+            <label for="btn_00" id="label_00">Comenzar la búsqueda</label>
+        </div>
+    </div>
+
+    <div id="pantalla_01">
+        <div class="contenedor">
+            <p>Esta es la montaña donde se refugia la última dragona. Es tu oportunidad, llegando has visto salir a la dragona, pero seguro no tarda en volver. Juntas coraje y te dispones a entrar, no hay tiempo que perder. Pero ¿Por dónde?</p>
+            
+            <input type="button" class="button" data-to="pantalla_02" id="btn_01" name="btn_01" onclick="handdle_btn_01()">
+            <label for="btn_01" id="label_01">Entrada difícil de alcanzar</label>
+            
+            <input type="button" class="button" data-to="pantalla_10" id="btn_02" name="btn_02" onclick="handdle_btn_02()">
+            <label for="btn_02" id="label_02">Entrada principal</label>
+            
+            <input type="button" class="button" data-to="pantalla_11" id="btn_03" name="btn_03" onclick="handdle_btn_03()">
+            <label for="btn_03" id="label_03">Entrada oculta</label>
+        </div>
+    </div>
+
+    <div id="pantalla_02">
+        <div class="contenedor">
+            <p>Luego de un par de metros te topas con un agujero grande en el suelo. No se ve el fondo, pero del otro lado ves algo que brilla.</p>
+           
+            <input type="button" class="button" data-to="pantalla_01" id="btn_04" name="btn_04" onclick="handdle_btn_04()"> <!-- Vuelve -->
+            <label for="btn_04" id="label_04">Volver</label>
+            
+            <input type="button" class="button" data-to="pantalla_03" id="btn_05" name="btn_05" onclick="handdle_btn_05()"> <!-- Intenta saltar -->
+            <label for="btn_05" id="label_05">Intentar saltar</label>
+        </div>
+    </div>
+
+    <div id="pantalla_03">
+        <div class="contenedor">
+            <p>A pesar del salto no llegas al otro lado, intentaste aferrarte, pero solo arrancaste un par de piedras y caíste al oscuro vacío. Ahora te encuentras en el camino que claramente usa la dragona, el olor a pestilente es muy fuerte. </p>
+            
+            <input type="button" class="button" data-to="pantalla_15" id="btn_06" onclick="handdle_btn_06()"> <!-- Continua caminando -->
+            <label for="btn_06" id="label_06">Continúa caminando</label>
+        </div>
+    </div>
+    
+    <div id="pantalla_04">
+        <div class="contenedor">
+            <p>El sonido fue provocado por un derrumbe. Lo que brillaba del otro lado del agujero por el que caíste ahora yace en el suelo. Son una armadura y una espada. Parecen estar encantadas. Te la colocas esperando que te ayude si aparece la dragona. </p>
+            
+            <input type="button" class="button" data-to="pantalla_09" id="btn_07"  onclick="handdle_btn_07()"> <!-- Continua caminando -->
+            <label for="btn_07" id="label_07">Continúar la búsqueda</label>
+        </div>
+    </div>
+
+    <div id="pantalla_05">
+        <div class="contenedor">
+            <p>Llegan al nido, pero la dragona ya regresó y los mira con cara de pocos amigos. Y ahora ¿Qué haces? </p>
+            
+            <input type="button" class="button" data-to="pantalla_06" id="btn_08" onclick="handdle_btn_08()"> <!-- Sacrifica al sirviente -->
+            <label for="btn_08" id="label_08">Pedirle que entretenga a la dragona</label>
+            
+            <input type="button" class="button hide" data-to="pantalla_07" id="btn_09" onclick="handdle_btn_09()"> <!-- Lucha con la dragona (Solo habilitado si tiene la espada) -->
+            <label for="btn_09" id="label_09">Luchar</label>
+            
+            <input type="button" class="button" data-to="pantalla_08" id="btn_10" onclick="handdle_btn_10()"> <!-- Te sacrificas -->
+            <label for="btn_10" id="label_10">Entretener a la dragona</label>
+        </div>
+    </div>
+
+    <div id="pantalla_06">
+        <div class="contenedor">
+            <p>Consigues un huevo sano y logras escapar mientras tu sirviente es calcinado por la dragona. </p>
+            
+            <input type="button" class="button" data-to="pantalla_24" id="btn_11"  onclick="handdle_btn_11()"> <!-- Vuelve a empezar (cerear todo) -->
+            <label for="btn_11" id="label_11">Escapar sin mirar atrás</label>
+        </div>
+    </div>
+
+    <div id="pantalla_07">
+        <div class="contenedor">
+            <p>Logras matar a la dragona y escapas junto a tu sirviente con todos los huevos que había en el nido. </p>
+            
+            <input type="button" class="button" data-to="pantalla_25" id="btn_12"  onclick="handdle_btn_12()"> <!-- Vuelve a empezar (cerear todo) -->
+            <label for="btn_12" id="label_12">Regresar victoriosos</label>
+        </div>
+    </div>
+
+    <div id="pantalla_08">
+        <div class="contenedor">
+            <p>Mueres calcinado por la dragona, pero tu sirviente logra escapar con un huevo sano. </p>
+            
+            <input type="button" class="button" data-to="pantalla_26" id="btn_13" onclick="handdle_btn_13()"> <!-- Vuelve a empezar (cerear todo) -->
+            <label for="btn_13" id="label_13">Ver cómo le fue al sirviente</label>
+        </div>
+    </div>
+
+    <div id="pantalla_09">
+        <div class="contenedor">
+            <p>Avanzando por el camino. Encuentras una puerta de madera maciza en una de las paredes de la cueva. Te acercas y escuchas una voz poco amigable desde adentro pidiendo que lo liberes. </p>
+            
+            <input type="button" class="button hide" data-to="pantalla_19" id="btn_14" onclick="handdle_btn_14()"> <!-- Abre la puerta (Solo habilitado si tiene la llave) -->
+            <label for="btn_14" id="label_14">Probar la llave vieja</label>
+            
+            <input type="button" class="button hide" data-to="pantalla_19" id="btn_15" onclick="handdle_btn_15()"> <!-- Rompe la puerta (Solo habilitado si tiene la espada) -->
+            <label for="btn_15" id="label_15">Abrir a espadazos</label>
+            
+            <input type="button" class="button" data-to="pantalla_18" id="btn_16" onclick="handdle_btn_16()"> <!-- Ignora al hombre -->
+            <label for="btn_16" id="label_16">Ignorarlo, no dijo "por favor"</label>
+            
+            <input type="button" class="button" data-to="pantalla_17" id="btn_17" onclick="handdle_btn_17()"> <!-- Trata de forcejear -->
+            <label for="btn_17" id="label_17">Tratar de abrir por la fuerza</label>
+        </div>
+    </div>
+
+    <div id="pantalla_10">
+        <div class="contenedor">
+            <p>Te acercas a la entrada, un aire pestilente y frío te da en la cara. Te alejas un poco, tomas tu última bocanada de aire fresco e ingresas a la cueva con valor. No hay tiempo que perder. </p>
+            
+            <input type="button" class="button" data-to="pantalla_09" id="btn_18" onclick="handdle_btn_18()"> <!-- Continua caminando -->
+            <label for="btn_18" id="label_18">Continuar con valor</label>
+        </div>
+    </div>
+
+    <div id="pantalla_11">
+        <div class="contenedor">
+            <p>Te encuentras en una sala sin salida en la cual hay un cofre que está incrustado en la pared, parece que con un poco de fuerza se podría abrir. ¿Intentas abrirlo? </p>
+            
+            <input type="button" class="button" data-to="pantalla_12" id="btn_19" onclick="handdle_btn_19()"> <!-- Abre el cofre (obtiene la llave) -->
+            <label for="btn_19" id="label_19">Intentar abrir el cofre</label>
+            
+            <input type="button" class="button" data-to="pantalla_01" id="btn_20" onclick="handdle_btn_20()"> <!-- Vuelve a probar por otra entrada -->
+            <label for="btn_20" id="label_20">Regresar</label>
+        </div>
+    </div>
+    
+    <div id="pantalla_12">
+        <div class="contenedor">
+            <p>Al abrir el cofre provocas un derrumbe en la entrada de la cueva. Dentro del cofre encuentras una llave antigua, y muchas otras cosas inútiles. Parece que el cofre está más suelto. ¿Qué haces?</p>
+            
+            <input type="button" class="button" data-to="pantalla_13" id="btn_21" onclick="handdle_btn_21()"> <!-- Quita el cofre -->
+            <label for="btn_21" id="label_21">Quitar el cofre</label>
+            
+            <input type="button" class="button" data-to="pantalla_14" id="btn_22" onclick="handdle_btn_22()"> <!-- Trata de quitar las piedras -->
+            <label for="btn_22" id="label_22">Intentar quitar las piedras</label>
+        </div>
+    </div>
+
+    <div id="pantalla_13">
+        <div class="contenedor">
+            <p>Logras quitar el cofre, el cual deja un agujero en la pared por donde puedes acceder a otro camino. </p>
+            
+            <input type="button" class="button" data-to="pantalla_09" id="btn_23" onclick="handdle_btn_23()"> 
+            <label for="btn_23" id="label_23">Avanzar por el túnel</label>
+        </div>
+    </div>
+
+    <div id="pantalla_14">
+        <div class="contenedor">
+            <h1 class="muerte">Has muerto...</h1>
+            <p>Mueves desesperadamente las piedras, generando otro derrumbe y obtienes una aplastante muerte. </p>
+            
+            <input type="button" class="button" data-to="pantalla_00" id="btn_24" onclick="handdle_btn_24()"> <!-- Vuelve a empezar (cerear todo) -->
+            <label for="btn_24" id="label_24">Volver a intentar</label>
+        </div>
+    </div>
+
+    <div id="pantalla_15">
+        <div class="contenedor">
+            <p>¿Qué habrá sido ese ruido?</p>
+            
+            <input type="button" class="button" data-to="pantalla_04" id="btn_25" onclick="handdle_btn_25()"> <!-- Se regresa y consigue la armadura y la espada -->
+            <label for="btn_25" id="label_25">Revisar que fue ese ruido</label>
+            
+            <input type="button" class="button" data-to="pantalla_09" id="btn_26" onclick="handdle_btn_26()"> <!-- Continua caminando -->
+            <label for="btn_26" id="label_26">Continuar caminando</label>
+        </div>
+    </div>
+
+    <div id="pantalla_16">
+        <div class="contenedor">
+            <h1 class="muerte">Has muerto...</h1>
+            <p>Encuentras un huevo de dragón, lo tomas y vuelves victorioso a tu reino. Pero como no comprobaste si el huevo estaba sano, te llevaste un huevo malo y el rey te manda a la horca. </p>
+            
+            <input type="button" class="button" data-to="pantalla_00" id="btn_27" onclick="handdle_btn_27()"> <!-- Vuelve a empezar (cerear todo) -->
+            <label for="btn_27" id="label_27">Volver a intentar</label>
+        </div>
+    </div>
+
+    <div id="pantalla_17">
+        <div class="contenedor">
+            <p>Tardaste mucho tratando de abrir la puerta y la dragona ha vuelto, te mira con cara de pocos amigos. </p>
+            
+            <input type="button" class="button hide" data-to="pantalla_16" id="btn_28" onclick="handdle_btn_28()"> <!-- Pelea y consigue escapar (solo si tiene la armadura) -->
+            <label for="btn_28" id="label_28">Luchar</label>
+            
+            <input type="button" class="button" data-to="pantalla_27" id="btn_29" onclick="handdle_btn_29()"> <!-- Continuar al inevitable destino -->
+            <label for="btn_29" id="label_29">Aceptar tu destino</label>
+        </div>
+    </div>
+
+    <div id="pantalla_18">
+        <div class="contenedor">
+            <p>Llegas al nido de la dragona. Pero no llegas solo, ya que la dragona regresó y te mira con cara de pocos amigos. </p>
+            
+            <input type="button" class="button hide" data-to="pantalla_16" id="btn_30" onclick="handdle_btn_30()"> <!-- Pelea y consigue escapara (solo si tiene la armadura) -->
+            <label for="btn_30" id="label_30">Luchar</label>
+            
+            <input type="button" class="button" data-to="pantalla_20" id="btn_31" onclick="handdle_btn_31()"> <!-- Continuar al inevitable destino -->
+            <label for="btn_31" id="label_31">Aceptar tu destino</label>
+        </div>
+    </div>
+
+    <div id="pantalla_19">
+        <div class="contenedor">
+            <p>La puerta se abre. El hombre que estaba dentro sale y se ofrece a ser tu sirviente como agradecimiento. Además, te explica cómo saber si un huevo se encuentra sano con la ayuda de una antorcha. </p>
+            
+            <input type="button" class="button" data-to="pantalla_05" id="btn_32" onclick="handdle_btn_32()"> <!-- Continua caminando -->
+            <label for="btn_32" id="label_32">Continuar la búsqueda</label>
+        </div>
+    </div>
+
+    <div id="pantalla_20">
+        <div class="contenedor">
+            <h1 class="muerte">Has muerto...</h1>
+            <p>Mueres calcinado por la dragona. </p>
+            
+            <input type="button" class="button" data-to="pantalla_00" id="btn_33" onclick="handdle_btn_33()"> <!-- Vuelve a empezar (cerear todo) -->
+            <label for="btn_33" id="label_33">Volver a intentar</label>
+        </div>
+    </div>
+
+    <div id="pantalla_21">
+        <div class="contenedor">
+            <h1 class="muerte">Has muerto...</h1>
+            <p>Mueres calcinado por la dragona. </p>
+            
+            <input type="button" class="button" data-to="pantalla_00" id="btn_34" onclick="handdle_btn_34()"> <!-- Vuelve a empezar (cerear todo) -->
+            <label for="btn_34" id="label_34">Volver a intentar</label>
+        </div>
+    </div>
+
+    <div id="pantalla_22">
+        <div class="contenedor">
+            <p>Logras abrir la puerta. El hombre que estaba dentro sale y se ofrece a ser tu sirviente como agradecimiento. Además, te explica cómo saber si un huevo se encuentra sano con la ayuda de una antorcha. </p>
+            
+            <input type="button" class="button" data-to="pantalla_05" id="btn_35" onclick="handdle_btn_35()"> <!-- Continua caminando -->
+            <label for="btn_35" id="label_35">Continuar la búsqueda</label>
+        </div>
+    </div>
+
+    <div id="pantalla_23">
+        <div class="contenedor">
+            <p>Para tu suerte la armadura es a prueba de fuego y logras matar a la dragona y consigues un huevo y te marchas. </p>
+
+            <input type="button" class="button" data-to="pantalla_16" id="btn_36" onclick="handdle_btn_36()"> <!-- Continua caminando -->
+            <label for="btn_36" id="label_36">Regresar victorioso</label>
+        </div>
+    </div>
+
+    <div id="pantalla_24">
+        <div class="contenedor">
+            <h1>Lo conseguiste...</h1>
+            <p>Consigues un huevo y logras escapar mientras tu sirviente es devorado por la dragona, regresas como un héroe a tu reino pero vives el resto de tu vida con remordimiento por haber sacrificado a aquel hombre.</p>
+            
+            <input type="button" class="button" data-to="pantalla_00" id="btn_37" onclick="handdle_btn_37()"> <!-- Vuelve a empezar (cerear todo) -->
+            <label for="btn_37" id="label_37">Volver a intentar</label>
+        </div>
+    </div>
+
+    <div id="pantalla_25">
+        <div class="contenedor">
+            <h1>¡Lo lograste!</h1>
+            <p>Logras matar a la dragona tu sirviente encuentra un huevo perfecto y vivo. Ambos regresan al reino y son reconocidos como héroes. Tu sirviente resultó ser un experto en dragones y gracias a él pudieron volver a criar dragones en el reino. </p>
+            
+            <input type="button" class="button" data-to="pantalla_00" id="btn_38" onclick="handdle_btn_38()"> <!-- Vuelve a empezar (cerear todo) -->
+            <label for="btn_38" id="label_38">Volver a intentar</label>
+        </div>
+    </div>
+
+    <div id="pantalla_26">
+        <div class="contenedor">
+            <h1>Has muerto<br>pero no en vano</h1>
+            <p>Mueres devorado por la dragona, pero tu sirviente logra escapar con un huevo vivo. Lo lleva ante tu rey, quien ordena que se te recuerde como un héroe. Tu sirviente resultó ser un experto en dragones y gracias a él pudieron volver a criar dragones en el reino. </p>
+            
+            <input type="button" class="button" data-to="pantalla_00" id="btn_39" onclick="handdle_btn_39()"> <!-- Vuelve a empezar (cerear todo) -->
+            <label for="btn_39" id="label_39">Volver a intentar</label>
+        </div>
+    </div>
+
+    <div id="pantalla_27">
+        <div class="contenedor">
+            <h1 class="muerte">Has muerto...</h1>
+            <p>Mueres calcinado por la dragona. </p>
+            
+            <input type="button" class="button" data-to="pantalla_00" id="btn_40" onclick="handdle_btn_40()"> <!-- Vuelve a empezar (cerear todo) -->
+            <label for="btn_40" id="label_40">Volver a intentar</label>
+        </div>
+    </div>
+
+    <div id="negro" class="hide"></div>
+
+    <audio class="audio" id="aleteo" controls>
+        <source type="audio/mp3" src="./assets/sounds/aleteo.mp3">
+    </audio>
+    <audio class="audio" id="ambiente_cueva" controls>
+        <source type="audio/mp3" src="./assets/sounds/ambiente_cueva.mp3">
+    </audio>
+    <audio class="audio" id="ambiente_day" controls>
+        <source type="audio/mp3" src="./assets/sounds/ambiente_day.mp3">
+    </audio>
+    <audio class="audio" id="caida_al_piso" controls>
+        <source type="audio/mp3" src="./assets/sounds/caida_al_piso.mp3">
+    </audio>
+    <audio class="audio" id="corriendo" controls>
+        <source type="audio/mp3" src="./assets/sounds/corriendo.mp3">
+    </audio>
+    <audio class="audio" id="cuerda" controls>
+        <source type="audio/mp3" src="./assets/sounds/cuerda.mp3">
+    </audio>
+    <audio class="audio" id="derrumbe" controls>
+        <source type="audio/mp3" src="./assets/sounds/derrumbe.mp3">
+    </audio>
+    <audio class="audio" id="derrumbe2" controls>
+        <source type="audio/mp3" src="./assets/sounds/derrumbe2.mp3">
+    </audio>
+    <audio class="audio" id="espadazos" controls>
+        <source type="audio/mp3" src="./assets/sounds/espadazos.mp3">
+    </audio>
+    <audio class="audio" id="forcejeo" controls>
+        <source type="audio/mp3" src="./assets/sounds/forcejeo.mp3">
+    </audio>
+    <audio class="audio" id="fuego" controls>
+        <source type="audio/mp3" src="./assets/sounds/fuego.mp3">
+    </audio>
+    <audio class="audio" id="grito_cayendo" controls>
+        <source type="audio/mp3" src="./assets/sounds/grito_cayendo.mp3">
+    </audio>
+    <audio class="audio" id="llave" controls>
+        <source type="audio/mp3" src="./assets/sounds/llave.mp3">
+    </audio>
+    <audio class="audio" id="no_no" controls>
+        <source type="audio/mp3" src="./assets/sounds/no_no.mp3">
+    </audio>
+    <audio class="audio" id="no" controls>
+        <source type="audio/mp3" src="./assets/sounds/no.mp3">
+    </audio>
+    <audio class="audio" id="pasos_armadura" controls>
+        <source type="audio/mp3" src="./assets/sounds/pasos_armadura.mp3">
+    </audio>
+    <audio class="audio" id="pasos_tierra" controls>
+        <source type="audio/mp3" src="./assets/sounds/pasos_tierra.mp3">
+    </audio>
+    <audio class="audio" id="quejido" controls>
+        <source type="audio/mp3" src="./assets/sounds/quejido.mp3">
+    </audio>
+    <audio class="audio" id="respiracion" controls>
+        <source type="audio/mp3" src="./assets/sounds/respiracion.mp3">
+    </audio>
+    <audio class="audio" id="ramas" controls>
+        <source type="audio/mp3" src="./assets/sounds/ramas.mp3">
+    </audio>
+    <audio class="audio" id="rocas" controls>
+        <source type="audio/mp3" src="./assets/sounds/rocas.mp3">
+    </audio>
+    <audio class="audio" id="romper_puerta" controls>
+        <source type="audio/mp3" src="./assets/sounds/romper_puerta.mp3">
+    </audio>
+    <audio class="audio" id="rugido" controls>
+        <source type="audio/mp3" src="./assets/sounds/rugido.mp3">
+    </audio>
+    <audio class="audio" id="rugido2" controls>
+        <source type="audio/mp3" src="./assets/sounds/rugido2.mp3">
+    </audio>
+    <audio class="audio" id="rugido3" controls>
+        <source type="audio/mp3" src="./assets/sounds/rugido3.mp3">
+    </audio>
+
+    <script src="./control.js"></script>
+</body>
+</html>
